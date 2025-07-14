@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <!-- Load DayJS external library -->
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <!-- babel.js external library translates JSX(JavaScript XML) to JavaScript -->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      // First time display of the time
+      const current_time = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
+    
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container);
+      root.render(current_time);
+
+      setInterval(() => {
+        // display of time in real-time
+        const current_time = <p>Current time: {dayjs().format('HH:mm:ss')}</p>; 
+        root.render(current_time);
+      }, 1000);
+    </script>
+  </body>
+</html>
